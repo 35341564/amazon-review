@@ -7,8 +7,16 @@ with open('reviews.txt','r')as f:
         if count % 1000 == 0:
             print(len(data))
 print('檔案讀取完畢，總共有',len(data),"筆資料")
-print(data[0])
 
+new = []
+for d in data:
+    if len(d)<100:
+        new.append(d)
+print("一共有",len(new),"筆資料長度小於100")
+print(new[0])
+
+
+#文字記數
 wc = {} #word_count
 for d in data:
     words = d.split(" ")
@@ -29,18 +37,11 @@ while True:
     word = input('查啥字? : ')
     if word in wc:
         print(wc[word])
+    elif word == 'q':
+        print('exit')
     else:
-        print('no')
+        print('查無此字')
 
 
 
 
-
-# print("留言平均長度為:",avg)
-
-# new = []
-# for d in data:
-#     if len(d)<100:
-#         new.append(d)
-# print("一共有",len(new),"筆資料長度小於100")
-# print(new[0])
